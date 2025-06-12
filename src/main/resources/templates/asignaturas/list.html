@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Mis Asignaturas</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+</head>
+<body>
+    <h1>Mis Asignaturas</h1>
+
+    <nav>
+        <a href="/dashboard">Dashboard</a> |
+        <a href="/asignaturas/new">Nueva Asignatura</a> |
+        <a href="/logout">Cerrar Sesión</a>
+    </nav>
+
+    <div th:if="${asignaturas.empty}">
+        <p>No tienes asignaturas registradas.</p>
+        <p><a href="/asignaturas/new">Agregar primera asignatura</a></p>
+    </div>
+
+    <div th:unless="${asignaturas.empty}">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID Curso</th>
+                    <th>Nombre</th>
+                    <th>Créditos</th>
+                    <th>Semestre</th>
+                    <th>Profesor</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="asignatura : ${asignaturas}">
+                    <td th:text="${asignatura.courseId}"></td>
+                    <td th:text="${asignatura.nombre}"></td>
+                    <td th:text="${asignatura.numeroCreditos}"></td>
+                    <td th:text="${asignatura.semestre}"></td>
+                    <td th:text="${asignatura.profesor}"></td>
+                    <td>
+                        <a th:href="@{/asignaturas/{id}(id=${asignatura.id})}">Ver</a> |
+                        <a th:href="@{/asignaturas/{id}/edit(id=${asignatura.id})}">Editar</a> |
+                        <form th:action="@{/asignaturas/{id}/delete(id=${asignatura.id})}" method="post" style="display:inline;">
+                            <button type="submit" onclick="return confirm('¿Estás seguro?')">Eliminar</button>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

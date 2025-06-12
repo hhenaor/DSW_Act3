@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Mi Perfil</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+</head>
+<body>
+    <h1>Mi Perfil</h1>
+
+    <nav>
+        <a href="/dashboard">Volver al Dashboard</a> |
+        <a href="/asignaturas">Mis Asignaturas</a> |
+        <a href="/logout">Cerrar Sesión</a>
+    </nav>
+
+    <div>
+        <h2>Información Personal</h2>
+
+        <table border="1">
+            <tr>
+                <td><strong>Nombre:</strong></td>
+                <td th:text="${usuario.nombre}"></td>
+            </tr>
+            <tr>
+                <td><strong>Usuario:</strong></td>
+                <td th:text="${usuario.username}"></td>
+            </tr>
+            <tr>
+                <td><strong>Email:</strong></td>
+                <td th:text="${usuario.email}"></td>
+            </tr>
+            <tr>
+                <td><strong>ID:</strong></td>
+                <td th:text="${usuario.id}"></td>
+            </tr>
+        </table>
+    </div>
+
+    <div>
+        <h3>Estadísticas</h3>
+        <p>Total de asignaturas: <span th:text="${#lists.size(usuario.asignaturas)}"></span></p>
+    </div>
+
+    <div>
+        <h3>Opciones de Cuenta</h3>
+
+        <form action="/usuario/delete" method="post" onsubmit="return confirm('¿Estás seguro de que quieres eliminar tu cuenta? Esta acción no se puede deshacer.');">
+            <button type="submit" style="background-color: red; color: white; padding: 10px;">
+                Eliminar Mi Cuenta
+            </button>
+        </form>
+
+        <p><small>Advertencia: Al eliminar tu cuenta se eliminarán también todas tus asignaturas.</small></p>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Asignatura</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+</head>
+<body>
+    <h1 th:text="${asignatura.id != null ? 'Editar Asignatura' : 'Nueva Asignatura'}"></h1>
+
+    <nav>
+        <a href="/asignaturas">Volver a Lista</a> |
+        <a href="/dashboard">Dashboard</a> |
+        <a href="/logout">Cerrar Sesión</a>
+    </nav>
+
+    <form th:action="@{/asignaturas}" method="post" th:object="${asignatura}">
+        <input type="hidden" th:field="*{id}">
+
+        <div>
+            <label>ID del Curso:</label>
+            <input type="text" th:field="*{courseId}" required>
+        </div>
+
+        <div>
+            <label>Nombre:</label>
+            <input type="text" th:field="*{nombre}" required>
+        </div>
+
+        <div>
+            <label>Nombre Completo:</label>
+            <input type="text" th:field="*{nombreCompleto}">
+        </div>
+
+        <div>
+            <label>Descripción:</label>
+            <textarea th:field="*{descripcion}" rows="3"></textarea>
+        </div>
+
+        <div>
+            <label>Área de Conocimiento:</label>
+            <input type="text" th:field="*{areaConocimiento}">
+        </div>
+
+        <div>
+            <label>Carrera:</label>
+            <input type="text" th:field="*{carrera}">
+        </div>
+
+        <div>
+            <label>Número de Créditos:</label>
+            <input type="number" th:field="*{numeroCreditos}" min="1" max="10">
+        </div>
+
+        <div>
+            <label>Contenido Temático:</label>
+            <textarea th:field="*{contenidoTematico}" rows="4"></textarea>
+        </div>
+
+        <div>
+            <label>Semestre:</label>
+            <input type="number" th:field="*{semestre}" min="1" max="10">
+        </div>
+
+        <div>
+            <label>Profesor:</label>
+            <input type="text" th:field="*{profesor}">
+        </div>
+
+        <div>
+            <button type="submit">Guardar</button>
+            <a href="/asignaturas">Cancelar</a>
+        </div>
+    </form>
+</body>
+</html>

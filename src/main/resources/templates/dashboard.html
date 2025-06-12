@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+</head>
+<body>
+    <h1>Dashboard</h1>
+
+    <div>
+        <p>Bienvenido: <span th:text="${usuario.nombre}"></span></p>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="/asignaturas">Mis Asignaturas</a></li>
+            <li><a href="/usuario/profile">Mi Perfil</a></li>
+            <li><a href="/logout">Cerrar Sesión</a></li>
+        </ul>
+    </nav>
+
+    <div>
+        <h2>Opciones Rápidas</h2>
+        <p><a href="/asignaturas/new">Agregar Nueva Asignatura</a></p>
+        <p><a href="/asignaturas">Ver Todas las Asignaturas</a></p>
+    </div>
+</body>
+</html>
