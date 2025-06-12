@@ -2,11 +2,19 @@
 
 Simple Web CRUD made with Spring Boot with user login.
 
+> [!IMPORTANT]
+> DEPLOY LINK: https://dswact3-production.up.railway.app/
+> 
+> This link will no longer work after 2025
+
 ## Requirements
 
 - [Java JDK 17+](https://www.oracle.com/java/technologies/downloads/)
 - [Apache NetBeans](https://netbeans.apache.org/download/index.html)
 - [MySQL](https://dev.mysql.com/downloads/mysql/)
+
+Or just use
+- [XAMPP](https://www.apachefriends.org/es/download.html)
 
 ## How to run on local
 
@@ -21,7 +29,10 @@ Simple Web CRUD made with Spring Boot with user login.
 
 3. Open on NetBeans
 
-4. Change ``application.properties`` (Default XAMPP settings)
+> [!IMPORTANT]
+> If you want to use XAMPP follow step 3.1
+
+3.1. Change ``application.properties`` (Default XAMPP settings)
 
 ``` env
 spring.datasource.url=jdbc:mysql://localhost:3306/Actividad3?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
@@ -35,4 +46,4 @@ spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
 spring.jpa.properties.hibernate.format_sql=true
 ```
 
-6. Run and open `http://localhost:8080`
+4. Run and open `http://localhost:8080`
