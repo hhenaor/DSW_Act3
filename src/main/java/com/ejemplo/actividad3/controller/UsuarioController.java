@@ -21,6 +21,7 @@ public class UsuarioController {
         if (usuario == null) {
             return "redirect:/login";
         }
+        usuario.getAsignaturas().size(); 
         model.addAttribute("usuario", usuario);
         return "usuario/profile";
     }
